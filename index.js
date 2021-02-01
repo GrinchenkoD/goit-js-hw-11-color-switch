@@ -18,6 +18,7 @@ let intervalId = null;
 
 const changeColor = function () {
   if (intervalId) return;
+  startRef.disabled = true;
   intervalId = setInterval(() => {
     document.body.style.backgroundColor = `${
       colors[randomIntegerFromInterval(0, 5)]
@@ -28,6 +29,7 @@ const changeColor = function () {
 const stopChange = function () {
   clearInterval(intervalId);
   intervalId = null;
+  startRef.disabled = false;
 };
 
 startRef.addEventListener('click', changeColor);
